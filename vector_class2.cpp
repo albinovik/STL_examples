@@ -28,7 +28,7 @@ int main(){
     cout << "Rating\tBook" << endl;
 
     vector<Review>::iterator pr;
-    for ( pr = books.begin(); pr < books.end(); pr++)
+    for ( pr = books.begin(); pr < books.end(); pr++)// begin, end   - are from STL
     {
         ShowReview(*pr);
     }
@@ -43,9 +43,19 @@ int main(){
             ShowReview(*pr);
         }
         //paste one element
+        books.insert(books.begin(), oldlist.begin()+1, oldlist.begin()+2);
+        cout << "After insertion: " << endl;
+        for ( pr = books.begin(); pr < books.end(); pr++)
+        {
+            ShowReview(*pr);
+        }
     }
-    
-    
+    books.swap(oldlist);//swap is from STL
+    cout << "Swaping oldlist with books: " << endl;
+    for ( pr = books.begin(); pr < books.end(); pr++)
+    {
+        ShowReview(*pr);
+    }
 
     return 0;
 }
